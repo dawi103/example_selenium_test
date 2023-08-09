@@ -13,12 +13,15 @@ class OrderProducts:
         self.add_product_to_cart3_id = 'add-to-cart-sauce-labs-bolt-t-shirt'
         self.add_product_to_cart4_id = 'add-to-cart-sauce-labs-fleece-jacket'
         self.add_product_to_cart5_id = 'add-to-cart-sauce-labs-onesie'
-        self.add_product_to_cart6_id = 'remove-test.allthethings()-t-shirt-(red)'
+        self.add_product_to_cart6_id = 'add-to-cart-test.allthethings()-t-shirt-(red)'
         self.cart_click_id = 'shopping_cart_container'
         self.checkout_id = 'checkout'
         self.first_name_id = 'first-name'
         self.second_name_id = 'last-name'
         self.postal_code_id = 'postal-code'
+        self.continue_button_id = 'continue'
+        self.finish_button_id = 'finish'
+        self.succes_comunicate = '//h2[text()="Thank you for your order"]'
 
 
     def open_page(self):
@@ -39,9 +42,12 @@ class OrderProducts:
 
     def cart_click(self):
         self.driver.find_element(By.ID, self.cart_click_id).click()
+        self.driver.find_element(By.ID, self.checkout_id).click()
 
 
     def information_order(self, firstname, secondname, postalcode):
         self.driver.find_element(By.ID,self.first_name_id).send_keys(firstname)
         self.driver.find_element(By.ID,self.second_name_id).send_keys(secondname)
         self.driver.find_element(By.ID,self.postal_code_id).send_keys(postalcode)
+        self.driver.find_element(By.ID, self.continue_button_id).click()
+        self.driver.find_element(By.ID, self.finish_button_id).click()
