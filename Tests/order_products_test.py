@@ -12,4 +12,6 @@ class TestOrder:
         order_products.add_products()
         order_products.cart_click()
         order_products.information_order("Test", "Testerski", "00-00")
-        assert order_products.succes_comunicate 
+        assert "Thank you for your order" in  order_products.succes_comunicate
+
+
